@@ -44,16 +44,6 @@ public class Config {
         	folder.mkdirs();
             File file = new File(folder, name);
             if (!file.exists()) {
-            	
-//            	try {
-//            		if(instance.getResource(resource == null ? name : (resource + ".").replace(".", "/") + name) == null) {
-//                		resource = resource == null ? name : (resource.split(".")[0] + ".").replace(".", "/") + name;
-//                	}
-//            	} catch(Exception ex) {
-//            		instance.getLogger().log(Level.WARNING, "Resource " + (resource == null ? name : resource) + " was not found. Remapping give exception:");
-//            		ex.printStackTrace();
-//            	}
-            	
                 Files.copy(instance.getResource(resource == null ? name : (resource + ".").replace(".", "/") + name), file.toPath(), new CopyOption[0]);
             }
             if(b) this.load();
@@ -72,7 +62,6 @@ public class Config {
         	folder.mkdirs();
         	File file = new File(folder, name);
         	if (!file.exists()) {
-//            	Files.copy(instance.getResource(resource == null ? name : (resource + ".").replace(".", "/") + name), file.toPath(), new CopyOption[0]);
         		copy(false);
         	} else if(config != null) config.save(new File(folder, name));
         } catch(IOException ex) {}
@@ -125,16 +114,6 @@ public class Config {
         	folder.mkdirs();
             File file = new File(folder, name.split("\\.")[0] + "TEMP." + name.split("\\.")[1]);
             if (!file.exists()) {
-            	
-//            	try {
-//            		if(instance.getResource(resource == null ? name : (resource + ".").replace(".", "/") + name) == null) {
-//                		resource = resource == null ? name : (resource.split(".")[0] + ".").replace(".", "/") + name;
-//                	}
-//            	} catch(Exception ex) {
-//            		instance.getLogger().log(Level.WARNING, "Resource " + (resource == null ? name : resource) + " was not found. Remapping give exception:");
-//            		ex.printStackTrace();
-//            	}
-            	
                 Files.copy(instance.getResource(resource == null ? name : (resource + ".").replace(".", "/") + name), file.toPath(), new CopyOption[0]);
             }
             FileConfiguration yml = new YamlConfiguration();
