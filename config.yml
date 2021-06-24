@@ -1,0 +1,7 @@
+make-region: "&cMake region first"
+no-permissions: "&cMissing permission &4worldedit.frames"
+pending: "&aPlacing item frames &e%replaced%/%pending%"
+done: "&aPlacing item frames - &6Done&c Skipped &4%skipped%"
+
+cooldown: 10 # ticks, must be more than 1
+placing: 250 # placing amount, must be more than 10

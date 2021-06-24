@@ -1,0 +1,9 @@
+name: ntdWorldEditFrames
+main: me.DenBeKKer.ntdWorldEditFrames.Main
+version: 1.0
+author: [DenBeKKer]
+website: https://discord.gg/vbYW3sperj
+softdepend: [WorldEdit]
+
+commands:
+   /frames:
