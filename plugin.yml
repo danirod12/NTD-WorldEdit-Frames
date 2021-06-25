@@ -1,6 +1,6 @@
 name: ntdWorldEditFrames
 main: me.DenBeKKer.ntdWorldEditFrames.Main
-version: 1.0
+version: 1.0.1
 author: [DenBeKKer]
 website: https://discord.gg/vbYW3sperj
 softdepend: [WorldEdit]

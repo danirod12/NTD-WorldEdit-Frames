@@ -3,6 +3,7 @@ package me.DenBeKKer.ntdWorldEditFrames;
 import java.util.Iterator;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.World;
 import org.bukkit.block.BlockFace;
 import org.bukkit.command.Command;
@@ -21,11 +22,15 @@ import com.sk89q.worldedit.math.BlockVector3;
 import com.sk89q.worldedit.regions.CuboidRegion;
 import com.sk89q.worldedit.regions.Region;
 
+import me.DenBeKKer.ntdWorldEditFrames.util.Metrics;
+import me.DenBeKKer.ntdWorldEditFrames.util.SpigotUpdater;
+
 public class Main extends JavaPlugin implements CommandExecutor {
 	
 	private Config config;
 	private int speed;
 	private int cooldown;
+	private SpigotUpdater updater;
 	
 	public void onEnable() {
 		
@@ -46,6 +51,30 @@ public class Main extends JavaPlugin implements CommandExecutor {
 		
 		Bukkit.getPluginCommand("/frames").setExecutor(this);
 		
+		new Metrics(this, 11819);
+		
+		updater = new SpigotUpdater(this, 93630);
+		
+		try {
+			if(updater.checkForUpdates()) {
+				
+				log(ChatColor.GOLD + "╔");
+				log(ChatColor.GOLD + "║   " + ChatColor.RED + ChatColor.BOLD + "[!] " + ChatColor.GREEN +
+						"New plugin version for " + ChatColor.YELLOW + "WorldEdit Frames" + ChatColor.GREEN + " has been released!");
+				log(ChatColor.GOLD + "║ " + ChatColor.GREEN + "Your current version is " + ChatColor.GRAY + 
+						updater.getLatestVersion() + " (outdated)" + ChatColor.GREEN + ". New version is " + ChatColor.RED +  updater.getLatestVersion());
+				log(ChatColor.GOLD + "║ " + ChatColor.GREEN + "Check " + ChatColor.AQUA + updater.getResourceURL() + ChatColor.GREEN + " for more details");
+				log(ChatColor.GOLD + "╚");
+				
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	private void log(String string) {
+		Bukkit.getConsoleSender().sendMessage(string);
 	}
 	
 	@Override
